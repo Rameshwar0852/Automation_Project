@@ -58,6 +58,15 @@ aws s3 \
 cp /tmp/${myname}-httpd-logs-${timestamp}.tar \
 s3://${s3_bucket}/${myname}-httpd-logs-${timestamp}.tar
 
+#########################################################################################################
+
+echo "httpd-logs ${timestamp} 
+
+file="/tmp/${myname}-httpd-logs-${timestamp}.tar" 
+filesize=$(ls -lh $file | awk '{print  $5}')
+
+echo "httpd-logs ${timestamp} "$filesize" >>  /var/www/html/inventory.html
+
 
 
 
